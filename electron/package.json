@@ -1,0 +1,13 @@
+{
+  "name": "grade-electron",
+  "version": "1.0.0",
+  "description": "implementation of electron ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Mia Celeste",
+  "devDependencies": {
+    "electron": "^11.2.3"
+  }
+}
