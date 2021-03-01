@@ -1,6 +1,6 @@
 # Grade: Python Module
 
-Tested on Arch Linux with Python3.9.
+This repository is a part of the [grade project](https://github.com/mia1024/grade). Tested on Arch Linux with Python3.9.
 
 ## Dependencies
 
@@ -10,10 +10,10 @@ Tested on Arch Linux with Python3.9.
 ## Run
 
 ```sh
-cd grade/script
-cd electron
+git clone git@github.com:mia1024/grade-script
+cd grade-script/electron
 npm i 
-# if you have yarn installed, you should use `yarn install` instead
+# if you have yarn installed, you probably want to use `yarn install` instead
 cd ..
 python3 -m pip install -r requirements.txt 
 python3 main.py
@@ -34,10 +34,6 @@ Homework 4 (HMC Chemistry 23B SP21)                    05:00 PM
                                 Monday, Mar 1                                 
 Homework 5 Code: branchLen.py (Bio 52)                 11:59 PM (late +24hr)
 Homework 5 Written: kaks.pdf (Bio 52)                  11:59 PM (late +24hr)
-
-───────────────────────────────────────────────────────────────────────────────
-                                Friday, Apr 23                                
-Chem Study Consent Form (HMC Chemistry 23B SP21)       06:00 PM
 
 ```
 
