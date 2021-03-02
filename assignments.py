@@ -28,6 +28,7 @@ class Assignment(NamedTuple):
     submitted:bool
     grade:str
 
+class NotLoggedIn(Exception): pass
 
 def get_courses_list() -> List[Course]:
     courses = []
@@ -43,6 +44,8 @@ def get_courses_list() -> List[Course]:
         req = requests.get('https://gradescope.com/', headers = headers, cookies = cookies)
         req.raise_for_status()
         soup = bs4.BeautifulSoup(req.text, 'html.parser')
+        if soup.find("title").text!="Dashboard | Gradescope":
+            raise NotLoggedIn
         beg = soup.find('h1', attrs = {'class': 'pageHeading'})
         if beg.text == 'Instructor Courses':
             beg = beg.find_next('h1', attrs = {'class': 'pageHeading'})
@@ -172,5 +175,8 @@ async def retrieve_assignments(courses_list:List[Course]) -> List[Assignment]:
         await session.close()
     return assignments
 
+def get_assignments() -> List[Assignment]:
+    return asyncio.run(retrieve_assignments(get_courses_list()))
 
-assignments: List[Assignment] = asyncio.run(retrieve_assignments(get_courses_list()))
+async def get_assignments_async() -> List[Assignment]:
+    return await retrieve_assignments(get_courses_list())

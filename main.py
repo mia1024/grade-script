@@ -1,7 +1,16 @@
-from assignments import assignments,Assignment
+from assignments import get_assignments,Assignment, NotLoggedIn
 import datetime
 from collections import defaultdict
 import json
+import sys
+
+try:
+    assignments=get_assignments()
+except NotLoggedIn:
+    print("Cannot log in to Gradescope. You need to log in to Gradescope again.",file=sys.stderr)
+    print("If you are unsure about what to do, delete the file named cookies.json and rerun this script.")
+    print("If the issue persists, please file a bug report")
+    sys.exit(1)
 
 pending_assignments=[]
 now=datetime.datetime.now()
