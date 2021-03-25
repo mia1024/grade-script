@@ -67,7 +67,7 @@ for key in sorted(d.keys()): #TODO: display late deadlines regardless
                         ext+=str(extension.days)+'d'
                     else:
                         hr+=extension.days*24
-                    hr+=extension.seconds/60
+                    hr+=extension.seconds/3600
                     if hr:
                         ext+=str(round(hr,not float(hr).is_integer() or None))+'hr'
                     print(f'{course:<55}{a.deadline.strftime("%I:%M %p")} (late +{ext})')
