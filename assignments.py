@@ -44,7 +44,7 @@ def get_courses_list() -> List[Course]:
         req = requests.get('https://gradescope.com/', headers = headers, cookies = cookies)
         req.raise_for_status()
         soup = bs4.BeautifulSoup(req.text, 'html.parser')
-        if soup.find("title").text!="Dashboard | Gradescope":
+        if soup.find("title").text!="Your Courses | Gradescope":
             raise NotLoggedIn
         beg = soup.find('h1', attrs = {'class': 'pageHeading'})
         if beg.text == 'Instructor Courses':

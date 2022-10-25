@@ -23,7 +23,7 @@ function createWindow () {
   view.webContents.executeJavaScript("$('input[type=checkbox]').click()")
   view.webContents.on('page-title-updated',(e,title)=>{
     console.log(`In page ${title}`);
-    if (title==='Dashboard | Gradescope'){
+    if (title==='Your Courses | Gradescope'){
       console.log('Login Successful')
       mainWindow.close();
     }
